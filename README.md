@@ -42,4 +42,4 @@ git ls-remote --heads origin
 ```
 
 ---
-These commands are handy for everyday Git usage. 🚀
+
