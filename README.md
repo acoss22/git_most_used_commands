@@ -1,54 +1,105 @@
-# Git Most Used Commands
+# 📘 Most Used Git & AWS CLI Commands
 
-This document contains some of the most useful Git commands based on personal experience.
-
-## Listing Remote Branches
-To list all remote branches in a Git repository, use the following command:
-
-```sh
-git branch -r
-```
-
-If you want to see both local and remote branches, use:
-
-```sh
-git branch -a
-```
-
-## Creating a New Branch
-To create a new branch from the current branch:
-
-```sh
-git branch <new-branch-name>
-```
-
-To switch to the newly created branch immediately, use:
-
-```sh
-git checkout -b <new-branch-name>
-```
-
-or the newer equivalent:
-
-```sh
-git switch -c <new-branch-name>
-```
-
-## Viewing Remote Tracking Branches
-For more details, such as the remote tracking branches, use:
-
-```sh
-git ls-remote --heads origin
-```
+This document contains a curated list of commonly used Git and AWS CLI commands based on real-world usage.
 
 ---
 
-# AWS CLI Most Used Commands
+## 🔀 Git Commands
 
-aws s3 sync dist/ s3://2024ana --delete
-→ Removed old build files and uploaded your latest Vite dist/ output to the 2024ana bucket.
+### 🧱 Listing Branches
 
-aws cloudfront create-invalidation --distribution-id E1IRVC5C4GFCAP --paths "/*"
-→ Told CloudFront to clear its cache so it will serve the fresh version from S3.
+* **List remote branches:**
+
+  ```sh
+  git branch -r
+  ```
+
+* **List both local and remote branches:**
+
+  ```sh
+  git branch -a
+  ```
+
+---
+
+### 🌱 Creating and Switching Branches
+
+* **Create a new branch from the current one:**
+
+  ```sh
+  git branch <new-branch-name>
+  ```
+
+* **Create and switch to the new branch (classic):**
+
+  ```sh
+  git checkout -b <new-branch-name>
+  ```
+
+* **Create and switch to the new branch (modern):**
+
+  ```sh
+  git switch -c <new-branch-name>
+  ```
+
+---
+
+### 🔍 Viewing Remote Tracking Branches
+
+* **List all remote branches and their references:**
+
+  ```sh
+  git ls-remote --heads origin
+  ```
+
+---
+
+### 🚀 Pushing Changes
+
+* **Push your changes safely, ensuring no one else's work is overwritten:**
+
+  ```sh
+  git push --force-with-lease
+  ```
+
+  > Use this instead of `--force` to avoid accidentally overwriting commits made by others.
+
+---
+
+### 🔄 Rebasing
+
+* **Rebase your current branch onto `master`:**
+
+  ```sh
+  git rebase master
+  ```
+
+  > Keeps your history clean by replaying your commits on top of the latest `master`. Useful before merging or pushing shared branches.
+
+---
+
+## ☁️ AWS CLI Commands
+
+### 📦 Sync Static Files to S3
+
+* **Upload the latest build and remove outdated files:**
+
+  ```sh
+  aws s3 sync dist/ s3://2024ana --delete
+  ```
+
+---
+
+### 🌐 Invalidate CloudFront Cache
+
+* **Force CloudFront to serve fresh content from S3:**
+
+  ```sh
+  aws cloudfront create-invalidation \
+    --distribution-id E1IRVC5C4GFCAP \
+    --paths "/*"
+  ```
+
+---
 
 
