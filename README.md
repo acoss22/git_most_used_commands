@@ -6,6 +6,18 @@ This document contains a curated list of commonly used Git and AWS CLI commands 
 
 ## 🔀 Git Commands
 
+### 📂 Branch-Based Development (Quick Overview)
+
+Branch-based development is a Git workflow where each new feature, bugfix, or task is developed in its own dedicated branch. This promotes isolation, collaboration, and safer code integration. Typically, developers branch off from a main branch (like `master` or `main`) and later merge changes back after review and testing.
+
+Key Benefits:
+
+* Keeps the main branch stable
+* Enables parallel development
+* Simplifies code reviews via pull requests
+
+---
+
 ### 🧱 Listing Branches
 
 * **List remote branches:**
@@ -101,5 +113,3 @@ This document contains a curated list of commonly used Git and AWS CLI commands 
   ```
 
 ---
-
-
