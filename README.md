@@ -45,4 +45,10 @@ git ls-remote --heads origin
 
 # AWS CLI Most Used Commands
 
+aws s3 sync dist/ s3://2024ana --delete
+→ Removed old build files and uploaded your latest Vite dist/ output to the 2024ana bucket.
+
+aws cloudfront create-invalidation --distribution-id E1IRVC5C4GFCAP --paths "/*"
+→ Told CloudFront to clear its cache so it will serve the fresh version from S3.
+
 
